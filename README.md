@@ -1,1 +1,1 @@
-# todolist-v1
+# Todolist app
