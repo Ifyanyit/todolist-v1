@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //connect mongoose to mongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB",{
+mongoose.connect("mongodb://localhost:27017/todolistDB",{
   useNewUrlParser: true,
   // useCreateIndex: true,
   useUnifiedTopology: true
@@ -186,6 +186,6 @@ app.post("/delete", async function(req, res){
 
 
 
-app.listen(3000, function() {
+app.listen(3000 || process.env.PORT, function() {
   console.log("Server started on port 3000");
 });
