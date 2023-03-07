@@ -1,5 +1,5 @@
 //jshint esversion:6
-const dotenv = require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -15,7 +15,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //connect mongoose to mongoDB
-mongoose.connect(process.env.MONGO_URI); //todolistDB is the name of the database
+mongoose.connect("mongodb://127.0.0.1:27017/todolistDB",{
+  useNewUrlParser: true,
+  // useCreateIndex: true,
+  useUnifiedTopology: true
+}); //todolist is the name of the database
 
 // Create schema or table columns in sql and it's datatype. 
 const itemsSchema = {
@@ -182,6 +186,6 @@ app.post("/delete", async function(req, res){
 
 
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
