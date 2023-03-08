@@ -50,7 +50,7 @@ const listSchema = {
 //model for the listSchema
 const List = mongoose.model("List", listSchema);
 
-app.get("/", async function run1(req, res) {
+app.get("/", async function (req, res) {
 
   try {
     const itemsFound = await Item.find({});
@@ -82,11 +82,11 @@ app.get("/", async function run1(req, res) {
 
 });
 //Updated to handle "UnhandledPromise rejection"
-run1().catch(error => console.error(error.stack));
+.catch(error => console.error(error.stack));
 
 
 //The new route for to access listSchema. :customListName variable takes any name the user types in.
-app.get("/:customListName", async function run2(req, res){
+app.get("/:customListName", async function (req, res){
   
   const customListName = _.capitalize(req.params.customListName); // Use lodash to make first letter capitalized.
 
@@ -112,7 +112,7 @@ app.get("/:customListName", async function run2(req, res){
   };
 });
 //Updated to handle "UnhandledPromise rejection"
-run2().catch(error => console.error(error.stack));
+.catch(error => console.error(error.stack));
 
 
 app.post("/", function(req, res){
@@ -152,7 +152,7 @@ app.post("/", function(req, res){
 
 });
 
-app.post("/delete", async function run3(req, res){
+app.post("/delete", async function (req, res){
   
   try {
     const checkedItemId = req.body.checkbox;
@@ -185,7 +185,7 @@ app.post("/delete", async function run3(req, res){
   };
 });
 //Updated to handle "UnhandledPromise rejection"
-run3().catch(error => console.error(error.stack));
+.catch(error => console.error(error.stack));
 
 
 app.listen(process.env.PORT || 3000, function() {
