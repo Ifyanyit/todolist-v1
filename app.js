@@ -82,7 +82,7 @@ app.get("/", async function (req, res) {
 
 });
 //Updated to handle "UnhandledPromise rejection"
-.catch(error => console.error(error.stack));
+  .catch(error => console.error(error.stack));
 
 
 //The new route for to access listSchema. :customListName variable takes any name the user types in.
@@ -112,7 +112,7 @@ app.get("/:customListName", async function (req, res){
   };
 });
 //Updated to handle "UnhandledPromise rejection"
-.catch(error => console.error(error.stack));
+  .catch(error => console.error(error.stack));
 
 
 app.post("/", function(req, res){
@@ -185,7 +185,7 @@ app.post("/delete", async function (req, res){
   };
 });
 //Updated to handle "UnhandledPromise rejection"
-.catch(error => console.error(error.stack));
+  .catch(error => console.error(error.stack));
 
 
 app.listen(process.env.PORT || 3000, function() {
